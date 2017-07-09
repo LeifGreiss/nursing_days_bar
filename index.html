@@ -76,7 +76,7 @@ d3.csv("data.csv", function(error, data) {
     var County = d.County; //add to stock code
     var y0 = 0;
     //d.days = color.domain().map(function(name) { return {name: name, y0: y0, y1: y0 += +d[name]}; });
-    d.days = color.domain().map(function(name) { return {county:county, name: name, y0: y0, y1: y0 += +d[name]}; });
+    d.days = color.domain().map(function(name) { return {County:County, name: name, y0: y0, y1: y0 += +d[name]}; });
     d.total = d.days[d.days.length - 1].y1;
 
   });
