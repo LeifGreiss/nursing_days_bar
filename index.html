@@ -186,7 +186,7 @@ d3.csv("data.csv", function(error, data) {
           } else d3.select(this).style("cursor", "auto");
         }
       })
-      on("click",function(d){        
+      .on("click",function(d){        
 
         if (active_link === "0") { //nothing selected, turn on this selection
           d3.select(this)           
