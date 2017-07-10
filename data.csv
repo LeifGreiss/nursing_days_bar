@@ -1,4 +1,4 @@
-County,Medicare Days,Medicaid Days,Veterans Affairs Days,Private Insurance Days,Self Pay Days, Other Days
+County,Days paid for by Medicare,Days paid for by Medicaid, Days Paid for by Veterans Affairs,Days paid for by Private Insurance,Days paid for by patients, Days paid for by other means
 ALLEGHENY,359542,1593259,56218,138758,294454,25521
 ARMSTRONG,11911,92857,0,2625,5161,281
 BUTLER,65978,342203,112,22869,76463,260
