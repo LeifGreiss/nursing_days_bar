@@ -94,12 +94,19 @@ d3.csv("data.csv", function(error, data) {
   svg.append("g")
       .attr("class", "y axis")
       .call(yAxis)
-    .append("text")
+ svg.append("text")
+        .attr("transform", "rotate(-90)") //rotates text
+        .attr("y",0 - margin.left) // positions text behind left margin
+        .attr("x",0 - (height / 2)) // positions text at half of chart height
+        .attr("dy", "1em")
+        .style("text-anchor", "middle") // center text
+        .text("Number of Patient Days");
+    /*.append("text")
       .attr("transform", "rotate(-90)")
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end");
-      //.text("Population");
+      //.text("Population");*/
 
   var County = svg.selectAll(".County")
       .data(data)
