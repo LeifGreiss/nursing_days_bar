@@ -136,7 +136,7 @@ d3.csv("data.csv", function(error, data) {
           d3.select(this).attr("stroke","blue").attr("stroke-width",0.8);
 
           svg.append("text")
-          .attr("x",xPos +width/7)
+          .attr("x",xPos +width/7.5)
           .attr("y",yPos +height/2)
           .attr("class","tooltip")
           .text(d.name +": "+ delta); 
