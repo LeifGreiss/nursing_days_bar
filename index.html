@@ -35,7 +35,7 @@ body {
 <script>
 
 var margin = {top: 20, right: 20, bottom: 30, left: 100},
-    width = 650 - margin.left - margin.right,
+    width = 700 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
 var x = d3.scale.ordinal()
@@ -75,7 +75,6 @@ d3.csv("data.csv", function(error, data) {
   data.forEach(function(d) {
     var MiCounty = d.County; //add to stock code
     var y0 = 0;
-    //d.days = color.domain().map(function(name) { return {name: name, y0: y0, y1: y0 += +d[name]}; });
     d.days = color.domain().map(function(name) { return {MiCounty:MiCounty, name: name, y0: y0, y1: y0 += +d[name]}; });
     d.total = d.days[d.days.length - 1].y1;
 
@@ -107,7 +106,6 @@ d3.csv("data.csv", function(error, data) {
     .enter().append("g")
       .attr("class", "g")
       .attr("transform", function(d) { return "translate(" + "0" + ",0)"; });
-      //.attr("transform", function(d) { return "translate(" + x(d.County) + ",0)"; })
 
   County.selectAll("rect")
       .data(function(d) {
