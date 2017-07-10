@@ -73,10 +73,10 @@ d3.csv("data.csv", function(error, data) {
   color.domain(d3.keys(data[0]).filter(function(key) { return key !== "County"; }));
 
   data.forEach(function(d) {
-    var County = d.County; //add to stock code
+    var MiCounty = d.County; //add to stock code
     var y0 = 0;
     //d.days = color.domain().map(function(name) { return {name: name, y0: y0, y1: y0 += +d[name]}; });
-    d.days = color.domain().map(function(name) { return {County:County, name: name, y0: y0, y1: y0 += +d[name]}; });
+    d.days = color.domain().map(function(name) { return {MiCounty:MiCounty, name: name, y0: y0, y1: y0 += +d[name]}; });
     d.total = d.days[d.days.length - 1].y1;
 
   });
@@ -101,14 +101,14 @@ d3.csv("data.csv", function(error, data) {
       .style("text-anchor", "end");
       //.text("Population");
 
-  var state = svg.selectAll(".state")
+  var County = svg.selectAll(".County")
       .data(data)
     .enter().append("g")
       .attr("class", "g")
       .attr("transform", function(d) { return "translate(" + "0" + ",0)"; });
       //.attr("transform", function(d) { return "translate(" + x(d.County) + ",0)"; })
 
-  state.selectAll("rect")
+  County.selectAll("rect")
       .data(function(d) {
         return d.days; 
       })
@@ -116,7 +116,7 @@ d3.csv("data.csv", function(error, data) {
       .attr("width", x.rangeBand())
       .attr("y", function(d) { return y(d.y1); })
       .attr("x",function(d) { //add to stock code
-          return x(d.mystate)
+          return x(d.MiCounty)
         })
       .attr("height", function(d) { return y(d.y0) - y(d.y1); })
       .attr("class", function(d) {
@@ -125,7 +125,7 @@ d3.csv("data.csv", function(error, data) {
       })
       .style("fill", function(d) { return color(d.name); });
 
-  state.selectAll("rect")
+  County.selectAll("rect")
        .on("mouseover", function(d){
 
           var delta = d.y1 - d.y0;
@@ -229,7 +229,7 @@ d3.csv("data.csv", function(error, data) {
 
   function restorePlot(d) {
 
-    state.selectAll("rect").forEach(function (d, i) {      
+    County.selectAll("rect").forEach(function (d, i) {      
       //restore shifted bars to original posn
       d3.select(d[idx])
         .transition()
@@ -267,7 +267,7 @@ d3.csv("data.csv", function(error, data) {
 
     //lower the bars to start on x-axis
     y_orig = [];
-    state.selectAll("rect").forEach(function (d, i) {        
+    County.selectAll("rect").forEach(function (d, i) {        
     
       //get height and y posn of base bar and selected bar
       h_keep = d3.select(d[idx]).attr("height");
