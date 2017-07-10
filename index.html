@@ -100,7 +100,7 @@ d3.csv("data.csv", function(error, data) {
         .attr("x",0 - (height / 2)) // positions text at half of chart height
         .attr("dy", "1em")
         .style("text-anchor", "middle") // center text
-        .text("Number of Patient Days");
+        .text("Patient Days");
 
   var County = svg.selectAll(".County")
       .data(data)
