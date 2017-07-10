@@ -177,7 +177,7 @@ d3.csv("data.csv", function(error, data) {
       .attr("id", function (d, i) {
         return "id" + d.replace(/\s/g, '');
       })
-      .on("mouseover",function(){        
+      /*.on("mouseover",function(){        
 
         if (active_link === "0") d3.select(this).style("cursor", "pointer");
         else {
@@ -185,7 +185,7 @@ d3.csv("data.csv", function(error, data) {
             d3.select(this).style("cursor", "pointer");
           } else d3.select(this).style("cursor", "auto");
         }
-      })
+      })*/
       /*.on("click",function(d){        
 
         if (active_link === "0") { //nothing selected, turn on this selection
@@ -234,7 +234,7 @@ d3.csv("data.csv", function(error, data) {
       .style("text-anchor", "end")
       .text(function(d) { return d; });
 
-  function restorePlot(d) {
+  /*function restorePlot(d) {
 
     County.selectAll("rect").forEach(function (d, i) {      
       //restore shifted bars to original posn
@@ -298,7 +298,7 @@ d3.csv("data.csv", function(error, data) {
    
     })    
    
-  } 
+  }*/ 
 
 });
 
